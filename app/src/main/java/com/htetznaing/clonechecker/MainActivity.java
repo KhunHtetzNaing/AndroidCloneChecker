@@ -184,7 +184,17 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle("Congratulations!")
                 .setMessage(brand+model+version+imei+ok)
-                .setPositiveButton("OK",null)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                showAds();
+                            }
+                        });
+                    }
+                })
                 .setNegativeButton("Copy Info", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -193,6 +203,12 @@ public class MainActivity extends AppCompatActivity {
                         if (clipboardManager.hasText()){
                             Toast.makeText(MainActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
                         }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                showAds();
+                            }
+                        });
                     }
                 });
 
@@ -255,7 +271,17 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle("Sorry!")
                 .setMessage(brand+model+version+imei+ok)
-                .setPositiveButton("OK",null)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                showAds();
+                            }
+                        });
+                    }
+                })
                 .setNegativeButton("Copy Info", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -264,6 +290,12 @@ public class MainActivity extends AppCompatActivity {
                         if (clipboardManager.hasText()){
                             Toast.makeText(MainActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
                         }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                showAds();
+                            }
+                        });
                     }
                 });
         AlertDialog dialog = builder.create();
@@ -364,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
     private void share() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT,"You can check your phone is Original or Clone with this app.\n\nDownload at Google Play Store : play.google.com/store/apps/details?id="+getPackageName()+"\n\nDirect Download : http://bit.ly/BlahBlah\n#CloneChcker");
+        intent.putExtra(Intent.EXTRA_TEXT,"You can check your phone is Original or Clone with this app.\n\nDownload at Google Play Store : play.google.com/store/apps/details?id="+getPackageName()+"\n\nDirect Download : http://bit.ly/2vSoYbm\n#CloneChcker");
         startActivityForResult(Intent.createChooser(intent,"Share App..."),showAds_code);
     }
 
