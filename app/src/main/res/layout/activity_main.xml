@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           <EditText
+               android:editable="false"
+               android:id="@+id/edIMEI"
+               android:hint="IMEI 15 digits!"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+            <Button
+                android:onClick="checkNow"
+                android:textAllCaps="false"
+                android:text="Check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <com.google.android.gms.ads.AdView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/adView"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/banner">
+        </com.google.android.gms.ads.AdView>
+
+        <TextView
+            android:layout_marginBottom="3dp"
+            android:layout_above="@id/adView"
+            android:onClick="gotoDeveloper"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Developed By Khun Htetz Naing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
