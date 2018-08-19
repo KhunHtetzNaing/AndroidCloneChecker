@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'zfont'
-            keyPassword '@zFont4'
-            storeFile file('/Users/htetznaing/Downloads/zFont')
-            storePassword '@zFont4'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.htetznaing.clonechecker"
@@ -24,7 +16,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.config
         }
     }
 }
